@@ -15,7 +15,7 @@
 // const stringurl = `${baseURL}/${fantomChainId}/tokens/${address}/token_holders/?key=${APIKEY}&format=csv`
 // console.log(stringurl)
 
-const https = require('https'); // or 'https' for https:// URLs
+const https = require('https'); // or 'http' for http:// URLs
 const fs = require('fs');
 
 const file = fs.createWriteStream("data/file.csv");

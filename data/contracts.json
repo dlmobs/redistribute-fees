@@ -1,0 +1,10 @@
+{
+    "250": {
+        "chain": "ftm",
+        "contract": "0x2130d2a1e51112D349cCF78D2a1EE65843ba36e0"
+    },
+    "1": {
+        "chain": "eth",
+        "contract": "0x95b3497bbcccc46a8f45f5cf54b0878b39f8d96c"
+    }
+}
