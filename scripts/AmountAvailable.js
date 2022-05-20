@@ -2,13 +2,13 @@
 
 const ethers = require('ethers');
 const erc20ABI = require('../abis/ERC20.json')
+const addresses = require('../data/contracts.json')
 
-const usdcAddress = "0x04068DA6C83AFCFA0e13ba15A6696662335D5B75"
-const contractAddress = "0x8E0dfafD247236B9025d3648F195386caD5b2da1" // unidex fees contract
+const usdcAddress = addresses[250].tokens.usdc.address
+const contractAddress = addresses[250].contracts.address // unidex fees contract
 
 const provider = new ethers.providers.JsonRpcProvider("https://rpc.ftm.tools/")
 const usdcContract = new ethers.Contract(usdcAddress, erc20ABI, provider)
-
 
 const availableFees = async (contract, provider, usdcContract) => {
     // get available balances

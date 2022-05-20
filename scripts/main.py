@@ -7,7 +7,7 @@ df_eth = pd.read_csv('data/tokenholders-0x95b3497bbcccc46a8f45f5cf54b0878b39f8d9
 new_file = "data/crosschain-tokenholders.csv"
 
 # amount of UniDex to be distributed
-token = sys.argv[1]
+token = float(sys.argv[1])
 
 # combine dataframes
 df = pd.concat([df_ftm, df_eth])

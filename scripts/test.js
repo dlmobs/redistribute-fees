@@ -1,5 +1,16 @@
-const spawn = require("child_process").spawn;
-const pythonProcess = spawn('python',["C:/Users/donia/Projects/UniDex/redistribute-fees/scripts/main.py", 2000]);
+// const path = require('path')
+// const spawn = require("child_process").spawn;
+// const pythonProcess = spawn('python',[path.join(__dirname, "main.py"), 2000]);
+
+const contracts = require('../data/contracts.json')
+const contract = contracts[250].tokens.unidx.address
+console.log(contract)
+// for (const chainID of Object.keys(contracts)) {
+//     // console.log(chainID)
+//     const contract = contracts[chainID].tokens.unidx.address
+//     console.log(contract)
+// }
+
 
 
 // const fetch = require('cross-fetch')
