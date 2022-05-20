@@ -14,7 +14,7 @@ const usdcContract = new ethers.Contract(usdcAddress, erc20ABI, provider)
 
 // receivers are addresses where money is sent to; tokenAddresses are usdc and ftm
 const receivers = ["0xFBbe90DD04250B5E789Ed9d1bFBA2476E524a852", "0x8c128f336B479b142429a5f351Af225457a987Fa"]
-const tokenAddresses = ["0x04068DA6C83AFCFA0e13ba15A6696662335D5B75", "0x0000000000000000000000000000000000000000"]
+const tokenAddresses = ["0x04068DA6C83AFCFA0e13ba15A6696662335D5B75", "0x0000000000000000000000000000000000000000"] // burn contract?
 
 // run transaction
 const run = tryTX(contract, provider, usdcContract, receivers, tokenAddresses)
