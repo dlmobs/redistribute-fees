@@ -22,6 +22,10 @@
             "feesRecipient": {
                 "address": "0x8c128f336B479b142429a5f351Af225457a987Fa",
                 "description": "fees recipient wallet to collect funds from treasury contract"
+            },
+            "disperseContract": {
+                "address": "0xD152f549545093347A162Dce210e7293f1452150",
+                "description": "Disperse contrat used to distribute fees to holders. disperse.app"
             }
         }
     },

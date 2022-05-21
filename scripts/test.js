@@ -2,13 +2,13 @@
 // const spawn = require("child_process").spawn;
 // const pythonProcess = spawn('python',[path.join(__dirname, "main.py"), 2000]);
 
-const test = ["a", "b"]
+// const test = ["a", "b"]
 
-for (const i in test) {
-    console.log(i)
-}
+// for (const i in test) {
+//     console.log(i)
+// }
 
-
+const BigNumber = require('bignumber')
 
 // const fetch = require('cross-fetch')
 
