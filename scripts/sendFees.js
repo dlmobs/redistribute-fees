@@ -2,7 +2,7 @@ require('dotenv').config();
 const ethers = require('ethers');
 const contractABI = require('../abis/contract.json')
 const erc20ABI = require('../abis/ERC20.json')
-const allAddresses = require('../data/contracts.json')
+const allAddresses = require('../data/addresses.json')
 const { availableFees } = require('./amountAvailable')
 
 const usdcAddress = allAddresses[250].tokens.usdc.address

@@ -1,8 +1,8 @@
 const https = require('https'); // or 'http' for http:// URLs
 const fs = require('fs');
+const contracts = require('../data/addresses.json')
 
 const downloadCSVfiles = async () => {
-    const contracts = require('../data/contracts.json')
     for (const chainID of Object.keys(contracts)) {
         const contract = contracts[chainID].tokens.unidx.address
     

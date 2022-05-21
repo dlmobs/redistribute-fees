@@ -2,7 +2,7 @@
 
 const ethers = require('ethers');
 const erc20ABI = require('../abis/ERC20.json')
-const addresses = require('../data/contracts.json')
+const addresses = require('../data/addresses.json')
 
 const usdcAddress = addresses[250].tokens.usdc.address
 const contractAddress = addresses[250].addresses.treasury.address // unidex treasury contract
