@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "available": "node scripts/AmountAvailable.js",
-    "send": "node scripts/SendAmount.js"
+    "sendtoWallet": "node scripts/sendFees.js"
   },
   "repository": {
     "type": "git",
