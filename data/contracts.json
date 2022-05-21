@@ -10,14 +10,19 @@
                 "decimals": 1000000
             },
             "ftm": {
-                "address": "",
-                "decimals": ""
+                "address": "0x0000000000000000000000000000000000000000",
+                "decimals": 1000000000000000000
             }
         },
-        "contracts": {
-            "name": "feesRecipient",
-            "address": "0x8E0dfafD247236B9025d3648F195386caD5b2da1",
-            "description": "Contract that receives fees from UniDex platform."
+        "addresses": {
+            "treasury": {
+                "address": "0x8e0dfafd247236b9025d3648f195386cad5b2da1",
+                "description": "UniDex treasury contract to receive fees"
+            },
+            "feesRecipient": {
+                "address": "0x8c128f336B479b142429a5f351Af225457a987Fa",
+                "description": "fees recipient wallet to collect funds from treasury contract"
+            }
         }
     },
     "1": {
