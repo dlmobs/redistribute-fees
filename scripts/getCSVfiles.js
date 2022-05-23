@@ -13,7 +13,7 @@ const downloadCSVfiles = async () => {
             // after download completed close filestream
             file.on("finish", () => {
                 file.close();
-                console.log(`download completed for ${contracts[chainID].chain}`);
+                console.log(`download completed for chain ${chainID}`);
             });
         });
     }

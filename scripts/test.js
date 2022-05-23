@@ -1,14 +1,73 @@
-// const path = require('path')
-// const spawn = require("child_process").spawn;
-// const pythonProcess = spawn('python',[path.join(__dirname, "main.py"), 2000]);
+const { transpose } = require('mathjs')
+const { parse } = require('csv-parse');
+const fs = require('fs'); 
+const { finished } = require('stream/promises')
 
-// const test = ["a", "b"]
+const BigNumber = require('bignumber.js')
 
-// for (const i in test) {
-//     console.log(i)
+// // Initialize the parser
+// const parser = parse({delimiter: ','}, function (err, holders) {
+//     console.log(holders)
+// });
+
+// Use the readable stream api to consume records
+// fs.createReadStream("data/crosschain-tokenholders.csv").pipe(parser);
+
+// console.log(parse(fs.createReadStream("data/crosschain-tokenholders.csv")))
+
+
+
+
+
+
+// const test = async () => {
+//     var data = []
+
+//     // Initialize the parser
+//     const parser = parse({delimiter: ','}, function (err, holders) {
+//     });
+    
+//     // Use the readable stream api to consume records
+//     await fs.createReadStream("data/crosschain-tokenholders.csv").pipe(parser).on('data', (row) => {
+//     data.push(row);
+//     });
+    
+//     return data
 // }
 
-const BigNumber = require('bignumber')
+// test().then((result) => {
+//     console.log(result)
+// })
+const ethers = require('ethers');
+const provider = new ethers.providers.JsonRpcProvider("https://rpc.ftm.tools/")
+
+
+// Read and process the CSV file
+const test = async () => {
+    gasPrice = await provider.getGasPrice()
+    return gasPrice
+};
+// Parse the CSV content
+test().then((result) => {
+    console.log(ethers.utils.formatUnits(result, "gwei"))
+})
+
+
+
+// console.log(fs.createReadStream("data/crosschain-tokenholders.csv").pipe(parse({delimiter: ','})))
+
+// const result = [];
+
+// fs.createReadStream("data/crosschain-tokenholders.csv")
+//   .pipe(parse())
+//   .on("data", (data) => {
+//     result.push(data);
+//   })
+//   .on("end", () => {
+//     console.log(result);
+//   });
+
+// console.log(result)
 
 // const fetch = require('cross-fetch')
 

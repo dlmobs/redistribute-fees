@@ -22,7 +22,6 @@ const availableFees = async (contract, provider, usdcContract) => {
 };
 
 availableFees(contractAddress, provider, usdcContract).then((ans) => {
-    console.log(ans)
     console.log((ans[0]).toNumber()/1000000000000000000, "FTM")
     console.log((ans[1]).toNumber()/1000000, "USDC")
     })

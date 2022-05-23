@@ -2,6 +2,13 @@
 # yarn lockfile v1
 
 
+"@babel/runtime@^7.17.9":
+  version "7.18.0"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.18.0.tgz#6d77142a19cb6088f0af662af1ada37a604d34ae"
+  integrity sha512-YMQvx/6nKEaucl0MY56mwIG483xk8SDNdlUwb2Ts6FUpr7fm85DxEmsY18LXBNhcTz6tO6JwZV8w1W06v8UKeg==
+  dependencies:
+    regenerator-runtime "^0.13.4"
+
 "@ethersproject/abi@5.6.1", "@ethersproject/abi@^5.6.0":
   version "5.6.1"
   resolved "https://registry.npmjs.org/@ethersproject/abi/-/abi-5.6.1.tgz"
@@ -372,12 +379,27 @@ child_process@^1.0.2:
   resolved "https://registry.npmjs.org/child_process/-/child_process-1.0.2.tgz"
   integrity sha1-sffn/HPSXn/R1FWtyU4UODAYK1o=
 
+complex.js@^2.1.1:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/complex.js/-/complex.js-2.1.1.tgz#0675dac8e464ec431fb2ab7d30f41d889fb25c31"
+  integrity sha512-8njCHOTtFFLtegk6zQo0kkVX1rngygb/KQI6z1qZxlFI3scluC+LVTCFbrkWjBv4vvLlbQ9t88IPMC6k95VTTg==
+
 cross-fetch@^3.1.5:
   version "3.1.5"
   resolved "https://registry.npmjs.org/cross-fetch/-/cross-fetch-3.1.5.tgz"
   integrity sha512-lvb1SBsI0Z7GDwmuid+mU3kWVBwTVUbe7S0H52yaaAdQOXq2YktTCZdlAcNKFzE6QtRz0snpw9bNiPeOIkkQvw==
   dependencies:
     node-fetch "2.6.7"
+
+csv-parse@^5.0.4:
+  version "5.0.4"
+  resolved "https://registry.yarnpkg.com/csv-parse/-/csv-parse-5.0.4.tgz#97e5e654413bcf95f2714ce09bcb2be6de0eb8e3"
+  integrity sha512-5AIdl8l6n3iYQYxan5djB5eKDa+vBnhfWZtRpJTcrETWfVLYN0WSj3L9RwvgYt+psoO77juUr8TG8qpfGZifVQ==
+
+decimal.js@^10.3.1:
+  version "10.3.1"
+  resolved "https://registry.yarnpkg.com/decimal.js/-/decimal.js-10.3.1.tgz#d8c3a444a9c6774ba60ca6ad7261c3a94fd5e783"
+  integrity sha512-V0pfhfr8suzyPGOx3nmq4aHqabehUZn6Ch9kyFpV79TGDTWFmHqUqXdabR7QHqxzrYolF4+tVmJhUG4OURg5dQ==
 
 dotenv@^16.0.0:
   version "16.0.0"
@@ -396,6 +418,11 @@ elliptic@6.5.4:
     inherits "^2.0.4"
     minimalistic-assert "^1.0.1"
     minimalistic-crypto-utils "^1.0.1"
+
+escape-latex@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/escape-latex/-/escape-latex-1.2.0.tgz#07c03818cf7dac250cce517f4fda1b001ef2bca1"
+  integrity sha512-nV5aVWW1K0wEiUIEdZ4erkGGH8mDxGyxSeqPzRNtWP7ataw+/olFObw7hujFWlVjNsaDFw5VZ5NzVSIqRgfTiw==
 
 ethers@^5.6.5:
   version "5.6.5"
@@ -432,6 +459,11 @@ ethers@^5.6.5:
     "@ethersproject/wallet" "5.6.0"
     "@ethersproject/web" "5.6.0"
     "@ethersproject/wordlists" "5.6.0"
+
+fraction.js@^4.2.0:
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/fraction.js/-/fraction.js-4.2.0.tgz#448e5109a313a3527f5a3ab2119ec4cf0e0e2950"
+  integrity sha512-MhLuK+2gUcnZe8ZHlaaINnQLl0xRIGRfcGk2yl8xoQAfHrSsL3rYu6FCmBdkdbhc9EPlwyGHewaRsvwRMJtAlA==
 
 fs@^0.0.1-security:
   version "0.0.1-security"
@@ -470,10 +502,30 @@ inherits@^2.0.3, inherits@^2.0.4:
   resolved "https://registry.npmjs.org/inherits/-/inherits-2.0.4.tgz"
   integrity sha512-k/vGaX4/Yla3WzyMCvTQOXYeIHvqOKtnqBduzTHpzpQZzAskKMhZ2K+EnBiSM9zGSoIFeMpXKxa4dYeZIQqewQ==
 
+javascript-natural-sort@^0.7.1:
+  version "0.7.1"
+  resolved "https://registry.yarnpkg.com/javascript-natural-sort/-/javascript-natural-sort-0.7.1.tgz#f9e2303d4507f6d74355a73664d1440fb5a0ef59"
+  integrity sha1-+eIwPUUH9tdDVac2ZNFED7Wg71k=
+
 js-sha3@0.8.0:
   version "0.8.0"
   resolved "https://registry.npmjs.org/js-sha3/-/js-sha3-0.8.0.tgz"
   integrity sha512-gF1cRrHhIzNfToc802P800N8PpXS+evLLXfsVpowqmAFR9uwbi89WvXg2QspOmXL8QL86J4T1EpFu+yUkwJY3Q==
+
+mathjs@^10.5.3:
+  version "10.5.3"
+  resolved "https://registry.yarnpkg.com/mathjs/-/mathjs-10.5.3.tgz#79e0dd9cf370adce80699cc40ed18c1c0cb6599e"
+  integrity sha512-RtF+F7SdRIf2E2+btyGDhuB6wmPjOH9KeNglfclaaaI6eK7ZNfsQS6IRAKvGyNsr8sFc6Pyb3JBLqEhYBuknVQ==
+  dependencies:
+    "@babel/runtime" "^7.17.9"
+    complex.js "^2.1.1"
+    decimal.js "^10.3.1"
+    escape-latex "^1.2.0"
+    fraction.js "^4.2.0"
+    javascript-natural-sort "^0.7.1"
+    seedrandom "^3.0.5"
+    tiny-emitter "^2.1.0"
+    typed-function "^2.1.0"
 
 minimalistic-assert@^1.0.0, minimalistic-assert@^1.0.1:
   version "1.0.1"
@@ -505,15 +557,35 @@ process@^0.11.1:
   resolved "https://registry.npmjs.org/process/-/process-0.11.10.tgz"
   integrity sha1-czIwDoQBYb2j5podHZGn1LwW8YI=
 
+regenerator-runtime@^0.13.4:
+  version "0.13.9"
+  resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.13.9.tgz#8925742a98ffd90814988d7566ad30ca3b263b52"
+  integrity sha512-p3VT+cOEgxFsRRA9X4lkI1E+k2/CtnKtU4gcxyaCUreilL/vqI6CdZ3wxVUx3UOUg+gnUOQQcRI7BmSI656MYA==
+
 scrypt-js@3.0.1:
   version "3.0.1"
   resolved "https://registry.npmjs.org/scrypt-js/-/scrypt-js-3.0.1.tgz"
   integrity sha512-cdwTTnqPu0Hyvf5in5asVdZocVDTNRmR7XEcJuIzMjJeSHybHl7vpB66AzwTaIg6CLSbtjcxc8fqcySfnTkccA==
 
+seedrandom@^3.0.5:
+  version "3.0.5"
+  resolved "https://registry.yarnpkg.com/seedrandom/-/seedrandom-3.0.5.tgz#54edc85c95222525b0c7a6f6b3543d8e0b3aa0a7"
+  integrity sha512-8OwmbklUNzwezjGInmZ+2clQmExQPvomqjL7LFqOYqtmuxRgQYqOD3mHaU+MvZn5FLUeVxVfQjwLZW/n/JFuqg==
+
+tiny-emitter@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/tiny-emitter/-/tiny-emitter-2.1.0.tgz#1d1a56edfc51c43e863cbb5382a72330e3555423"
+  integrity sha512-NB6Dk1A9xgQPMoGqC5CVXn123gWyte215ONT5Pp5a0yt4nlEoO1ZWeCwpncaekPHXO60i47ihFnZPiRPjRMq4Q==
+
 tr46@~0.0.3:
   version "0.0.3"
   resolved "https://registry.npmjs.org/tr46/-/tr46-0.0.3.tgz"
   integrity sha1-gYT9NH2snNwYWZLzpmIuFLnZq2o=
+
+typed-function@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/typed-function/-/typed-function-2.1.0.tgz#ded6f8a442ba8749ff3fe75bc41419c8d46ccc3f"
+  integrity sha512-bctQIOqx2iVbWGDGPWwIm18QScpu2XRmkC19D8rQGFsjKSgteq/o1hTZvIG/wuDq8fanpBDrLkLq+aEN/6y5XQ==
 
 util@^0.10.3:
   version "0.10.4"
