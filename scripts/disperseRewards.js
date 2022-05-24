@@ -7,12 +7,12 @@ const fs = require('fs');
 const { parse } = require('csv-parse');
 const { transpose } = require('mathjs')
 const { finished } = require('stream/promises')
+const { estimatePrice } = require('./estimateGas')
 const allAddresses = require('../data/addresses.json')
 const disperseABI = require('../abis/disperse.json')
 
 // all addresses needed
 const usdcAddress = allAddresses[250].tokens.usdc.address
-
 const contractAddress = allAddresses[250].addresses.disperseContract.address
 
 const provider = new ethers.providers.JsonRpcProvider("https://rpc.ftm.tools/")
@@ -38,10 +38,9 @@ const processFile = async () => {
 // disperse fees
 const distribute = async (contract, usdcAddress) => {
     const holders = await processFile()
-    console.log(holders)
 
-    const gasPrice = await provider.getGasPrice()
-    const gasPriceWei = ethers.utils.formatUnits(gasPrice, "gwei")
+    // Estimate Gas Price
+    const gasPriceWei = await estimatePrice(provider)
     console.log("Estimated Gas Price", gasPriceWei)
 
     let tx;
@@ -58,29 +57,6 @@ const distribute = async (contract, usdcAddress) => {
     } catch (error) {
         console.log('transaction error:', error)
     }
-
-    // amount of usdc and ftm available
-    // // try transactions, sends usdc and ftm to recipient address
-    // for (const i in tokenAmounts) {
-    //     const sendAmount = tokenAmounts[i]
-    //     const token = addresses[i]
-
-    //     // console.log("sendAmount", sendAmount)
-    //     // console.log("token", token)
-    //     // console.log("recipient", recipient)
-    //     // console.log()
-
-    //     let tx;
-    //     try {
-    //         tx = await contract.sendFunds(token, recipient, sendAmount)
-    //         tx = await tx.wait();
-    //         if (tx.status === 1) {
-    //             console.log(token, 'transaction complete');
-    //         }
-    //     } catch (error) {
-    //         console.log(token, 'transaction error:', error)
-    //     }
-    // }
 };
 
 // run transaction

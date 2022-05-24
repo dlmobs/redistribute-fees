@@ -38,21 +38,10 @@ const BigNumber = require('bignumber.js')
 // test().then((result) => {
 //     console.log(result)
 // })
-const ethers = require('ethers');
-const provider = new ethers.providers.JsonRpcProvider("https://rpc.ftm.tools/")
 
+const a = BigNumber(Math.round(3452.9916636187004))
 
-// Read and process the CSV file
-const test = async () => {
-    gasPrice = await provider.getGasPrice()
-    return gasPrice
-};
-// Parse the CSV content
-test().then((result) => {
-    console.log(ethers.utils.formatUnits(result, "gwei"))
-})
-
-
+console.log(a.toNumber())
 
 // console.log(fs.createReadStream("data/crosschain-tokenholders.csv").pipe(parse({delimiter: ','})))
 
