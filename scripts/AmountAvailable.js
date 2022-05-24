@@ -16,14 +16,14 @@ const availableFees = async (contract, provider, usdcContract) => {
     const ftm_balance = await provider.getBalance(contract)
     const usdc_balance = await usdcContract.balanceOf(contract)
     const ftm_sendAmount = Math.round( (Number(ftm_balance) - 1000000000000000000))
-    const usdc_sendAmount = Math.round( (Number(usdc_balance) - 1000000))
+    const usdc_sendAmount = Math.round( (Number(usdc_balance) - 1000000)) * 1000000000000
     const available = [BigNumber(ftm_sendAmount), BigNumber(usdc_sendAmount)]
     return available
 };
 
 availableFees(contractAddress, provider, usdcContract).then((ans) => {
     console.log((ans[0]).toNumber()/1000000000000000000, "FTM")
-    console.log((ans[1]).toNumber()/1000000, "USDC")
+    console.log((ans[1]).toNumber()/1000000000000000000, "USDC")
     })
 
 module.exports = {
