@@ -17,9 +17,9 @@ const availableFees = async (contract, provider, usdcContract) => {
     const usdc_balance = await usdcContract.balanceOf(contract)
     // const ftm_sendAmount = BigNumber(Number(ftm_balance)).dividedToIntegerBy(1000000000000000000).minus(1).multipliedBy(1000000000000000000)
     // const usdc_sendAmount = BigNumber(Number(usdc_balance)).dividedToIntegerBy(1000000).minus(1).multipliedBy(1000000000000000000)
-    const ftm_sendAmount = (Math.round(ftm_balance / 1000000000000000000) - 1 ) * 1000000000000000000
-    const usdc_sendAmount = (Math.round(usdc_balance / 1000000) - 1 ) * 1000000000000000000
-    const available = [Math.round(ftm_sendAmount), Math.round(usdc_sendAmount)]
+    const ftm_sendAmount = BigNumber(Number(ftm_balance)).dividedToIntegerBy(1000000000000000000).minus(1).multipliedBy(1000000000000000000)
+    const usdc_sendAmount = BigNumber(Number(usdc_balance)).dividedToIntegerBy(1000000).minus(1).multipliedBy(1000000000000000000)
+    const available = [ftm_sendAmount.toNumber(), usdc_sendAmount.toNumber()]
     return available
 };
 
