@@ -36,10 +36,11 @@ const collectFees = async (contract, addresses, recipient, provider) => {
 
     // amount of usdc and ftm available
     const tokenAmounts = await availableFees(contractAddress, provider, usdcContract)
+    const sendingAmounts = tokenAmounts.slice(0, 2)
 
     // try transactions, sends usdc and ftm to recipient address
-    for (const i in tokenAmounts) {
-        const sendAmount = tokenAmounts[i]
+    for (const i in sendingAmounts) {
+        const sendAmount = sendingAmounts[i]
         const token = addresses[i]
 
         let tx;

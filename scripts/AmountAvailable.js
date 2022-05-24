@@ -17,15 +17,20 @@ const availableFees = async (contract, provider, usdcContract) => {
     const usdc_balance = await usdcContract.balanceOf(contract)
     // const ftm_sendAmount = BigNumber(Number(ftm_balance)).dividedToIntegerBy(1000000000000000000).minus(1).multipliedBy(1000000000000000000)
     // const usdc_sendAmount = BigNumber(Number(usdc_balance)).dividedToIntegerBy(1000000).minus(1).multipliedBy(1000000000000000000)
-    const ftm_sendAmount = BigNumber(Number(ftm_balance)).dividedToIntegerBy(1000000000000000000).minus(1).multipliedBy(1000000000000000000)
-    const usdc_sendAmount = BigNumber(Number(usdc_balance)).dividedToIntegerBy(1000000).minus(1).multipliedBy(1000000000000000000)
-    const available = [ftm_sendAmount.toNumber(), usdc_sendAmount.toNumber()]
+    const ftm_available = BigNumber(Number(ftm_balance)).dividedToIntegerBy(1000000000000000000)
+    const usdc_available = BigNumber(Number(usdc_balance)).dividedToIntegerBy(1000000)
+
+    const ftm_sendAmount = ftm_available.dividedBy(10).integerValue(BigNumber.ROUND_DOWN).multipliedBy(10).multipliedBy(1000000000000000000)
+    const usdc_sendAmount = usdc_available.dividedBy(10).integerValue(BigNumber.ROUND_DOWN).multipliedBy(10).multipliedBy(1000000000000000000)
+    
+    const available = [ftm_sendAmount.toNumber(), usdc_sendAmount.toNumber(), ftm_available.toNumber(), usdc_available.toNumber()]
     return available
 };
 
 availableFees(contractAddress, provider, usdcContract).then((ans) => {
-    console.log((ans[0])/(1000000000000000000), "FTM")
-    console.log((ans[1])/(1000000000000000000), "USDC")
+    console.log(`Contract Balance: ${ans[2]} FTM and ${ans[3]} USDC`)
+    console.log(`Sending: ${ans[0]/(1000000000000000000)} FTM and ${ans[1]/(1000000000000000000)} USDC`)
+    console.log("-----------------------------------------")
     })
 
 module.exports = {

@@ -39,9 +39,10 @@ const BigNumber = require('bignumber.js')
 //     console.log(result)
 // })
 
-const a = BigNumber("3452991663618700400000.").dividedToIntegerBy(1000000000000000000).minus(1).multipliedBy(10)
-
-console.log(a.toNumber())
+const a = [1, 2, 3, 4]
+const b = a.slice(0, 2)
+console.log(a)
+console.log(b)
 
 // console.log(fs.createReadStream("data/crosschain-tokenholders.csv").pipe(parse({delimiter: ','})))
 
