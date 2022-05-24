@@ -44,7 +44,7 @@ const collectFees = async (contract, addresses, recipient, provider) => {
 
         let tx;
         try {
-            tx = await contract.sendFunds(token, recipient, sendAmount)
+            tx = await contract.sendFunds(token, recipient, sendAmount, {gasPrice: ethers.utils.parseUnits(gasPriceWei, 'gwei'), gasLimit: 100000})
             tx = await tx.wait();
             if (tx.status === 1) {
                 console.log(token, 'transaction complete');
