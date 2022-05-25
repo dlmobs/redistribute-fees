@@ -9,6 +9,12 @@ const estimatePrice = async (provider) => {
     return gasPriceWei
 }
 
+// const provider = new ethers.providers.JsonRpcProvider("https://rpc.ftm.tools/")
+
+// estimatePrice(provider).then((ans) => {
+//     console.log(typeof(ans))
+//     })
+
 module.exports = {
     estimatePrice
 }
