@@ -1,9 +1,13 @@
 import pandas as pd
 import sys
+import json
+
+# boba
+
 
 # read csv files
-df_ftm = pd.read_csv('data/tokenholders-0x2130d2a1e51112d349ccf78d2a1ee65843ba36e0.csv')
-df_eth = pd.read_csv('data/tokenholders-0x95b3497bbcccc46a8f45f5cf54b0878b39f8d96c.csv')
+df_ftm = pd.read_csv('data/csv/ftm-tokenholders.csv')
+df_eth = pd.read_csv('data/csv/eth-tokenholders.csv')
 new_file = "data/crosschain-tokenholders.csv"
 
 # amount of UniDex to be distributed

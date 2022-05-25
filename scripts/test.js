@@ -11,28 +11,26 @@
 
 
 
-const https = require('https'); // or 'http' for http:// URLs
-const fs = require('fs');
 const contracts = require('../data/addresses.json')
 
 const downloadCSVfiles = async () => {
-    const chainID = 288
-    const contract = "0x375488F097176507e39B9653b88FDc52cDE736Bf"
-
-    const file = fs.createWriteStream(`data/tokenholders-${contract}.json`);
-    const request = https.get(`https://blockexplorer.boba.network/api?module=token&action=getTokenHolders&contractaddress=${contract}`, function(response) {
-        response.pipe(file);
-
-        // after download completed close filestream
-        file.on("finish", () => {
-            file.close();
-            console.log(`download completed for chain ${chainID}`);
-        });
-    });
-    
-};
+    for (const chainID of Object.keys(contracts)) {
+        // chain name
+        switch (chainID) {
+            case "1":
+                chain = "ETH"
+                break
+            case "250":
+                chain = "FTM"
+                break
+            case "288":
+                chain = "BOBA"
+                break
+        }
+        console.log(chain)
+    }
+}
 downloadCSVfiles()
-
 /*
 send usdc and ftm from treasury contract to wallet
 
