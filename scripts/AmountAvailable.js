@@ -20,8 +20,8 @@ const availableFees = async (contract, provider, usdcContract) => {
     const ftm_available = BigNumber(String(ftm_balance)).dividedToIntegerBy(1000000000000000000)
     const usdc_available = BigNumber(String(usdc_balance)).dividedToIntegerBy(1000000)
 
-    const ftm_sendAmount = ftm_available.dividedBy(10).integerValue(BigNumber.ROUND_DOWN).multipliedBy(10).multipliedBy(1000000000000000000)
-    const usdc_sendAmount = usdc_available.dividedBy(10).integerValue(BigNumber.ROUND_DOWN).multipliedBy(10).multipliedBy(1000000000000000000)
+    const ftm_sendAmount = String(ftm_available.dividedBy(10).integerValue(BigNumber.ROUND_DOWN).multipliedBy(10)) + "000000000000000000"
+    const usdc_sendAmount = String(usdc_available.dividedBy(10).integerValue(BigNumber.ROUND_DOWN).multipliedBy(10))  + "000000000000000000"
 
     const available = [ftm_sendAmount, usdc_sendAmount, ftm_available, usdc_available]
     return available
