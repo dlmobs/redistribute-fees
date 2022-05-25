@@ -40,7 +40,7 @@ const collectFees = async (contract, addresses, recipient, provider) => {
 
     // try transactions, sends usdc and ftm to recipient address
     for (const i in sendingAmounts) {
-        const sendAmount = String(sendingAmounts[i])
+        const sendAmount = sendingAmounts[i]
         const token = addresses[i]
 
         let tx;

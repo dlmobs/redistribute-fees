@@ -39,8 +39,8 @@ const BigNumber = require('bignumber.js')
 //     console.log(result)
 // })
 
-const a = [1, 2, 3, 4]
-const b = a.slice(0, 2)
+const a = 10000000000000000000000000
+const b = String(a)
 console.log(a)
 console.log(b)
 
