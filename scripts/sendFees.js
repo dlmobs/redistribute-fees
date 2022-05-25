@@ -12,6 +12,8 @@ const erc20ABI = require('../abis/ERC20.json')
 const allAddresses = require('../data/addresses.json')
 const { availableFees } = require('./amountAvailable')
 const { estimatePrice } = require('./estimateGas')
+const BigNumber = require('bignumber.js')
+
 
 // all addresses needed
 const usdcAddress = allAddresses[250].tokens.usdc.address
