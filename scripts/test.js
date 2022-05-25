@@ -46,7 +46,7 @@ const recipient = allAddresses[250].addresses.feesRecipient.address
 
 const collectFees = async (contract, addresses, recipient, provider) => {
     // amount of usdc and ftm available
-    const sendingAmounts = [1000000000000000000, 1000000]
+    const sendingAmounts = ["1000000000000000000", "1000000000000000000"]
 
     // try transactions, sends usdc and ftm to recipient address
     for (const i in sendingAmounts) {
