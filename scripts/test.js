@@ -8,16 +8,30 @@
 // Use the readable stream api to consume records
 // fs.createReadStream("data/crosschain-tokenholders.csv").pipe(parser);
 
-// console.log(parse(fs.createReadStream("data/crosschain-tokenholders.csv")))
-const BigNumber = require('bignumber.js')
-
-const sendingAmounts = BigNumber("1000000000000000000")
-console.log(sendingAmounts.toString())
 
 
 
+const https = require('https'); // or 'http' for http:// URLs
+const fs = require('fs');
+const contracts = require('../data/addresses.json')
 
+const downloadCSVfiles = async () => {
+    const chainID = 288
+    const contract = "0x375488F097176507e39B9653b88FDc52cDE736Bf"
 
+    const file = fs.createWriteStream(`data/tokenholders-${contract}.json`);
+    const request = https.get(`https://blockexplorer.boba.network/api?module=token&action=getTokenHolders&contractaddress=${contract}`, function(response) {
+        response.pipe(file);
+
+        // after download completed close filestream
+        file.on("finish", () => {
+            file.close();
+            console.log(`download completed for chain ${chainID}`);
+        });
+    });
+    
+};
+downloadCSVfiles()
 
 /*
 send usdc and ftm from treasury contract to wallet

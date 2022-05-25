@@ -19,6 +19,7 @@ const downloadCSVfiles = async () => {
     }
 };
 
+downloadCSVfiles()
 module.exports = {
     downloadCSVfiles
 }

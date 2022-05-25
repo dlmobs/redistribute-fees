@@ -1,0 +1,46 @@
+{
+  "message": "OK",
+  "result": [
+    {
+      "address": "0x522249c07f09bee90c3d6bcbcc60f885f2293dcd",
+      "value": "57841639440383671109297"
+    },
+    {
+      "address": "0x202a256464de8c5ef05236f3765342d8217c0f94",
+      "value": "22694719429669555381286"
+    },
+    {
+      "address": "0xd6a9eb81c4db49ec93d483a9df6d1687a6b23303",
+      "value": "5025824706515500404567"
+    },
+    {
+      "address": "0x1967b8a305c152898ca71e035891b6bc9e176737",
+      "value": "2506272333220848845482"
+    },
+    {
+      "address": "0x2e5d207a4c0f7e7c52f6622dcc6eb44bc0fe1a13",
+      "value": "713924849148737675273"
+    },
+    {
+      "address": "0xff0fa1ea333d66a38a03ece567bf821fe43d678c",
+      "value": "537596061115865600044"
+    },
+    {
+      "address": "0xe126c916abe6e5e673d965e8bc6c5c0b5ead4ffb",
+      "value": "186958650488247157602"
+    },
+    {
+      "address": "0xfbbe90dd04250b5e789ed9d1bfba2476e524a852",
+      "value": "14793641865412801079"
+    },
+    {
+      "address": "0x44d60c43aa495fa89c13efa2b5be734a12367f5f",
+      "value": "11437181630864818204"
+    },
+    {
+      "address": "0x41ae2ecb07ee6f5bf7b93f5d6b26aac6e42eab5b",
+      "value": "6595818330757782684"
+    }
+  ],
+  "status": "1"
+}
