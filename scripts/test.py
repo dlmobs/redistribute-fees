@@ -1,4 +1,6 @@
 import pandas as pd
 
-df = pd.read_json('data/csv/boba-tokenholders.json')
-print(df.head())
+df_boba = pd.read_json('data/csv/boba-tokenholders.json')
+df_boba = df_boba["result"].apply(pd.Series)
+print(df_boba.head())
+print(df_boba.head())

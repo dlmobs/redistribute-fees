@@ -1,20 +1,23 @@
 import pandas as pd
 import sys
-import json
-
-# boba
-
 
 # read csv files
 df_ftm = pd.read_csv('data/csv/ftm-tokenholders.csv')
 df_eth = pd.read_csv('data/csv/eth-tokenholders.csv')
-new_file = "data/crosschain-tokenholders.csv"
+df_boba = pd.read_json('data/csv/boba-tokenholders.json')
+new_file = "data/csv/crosschain-tokenholders.json"
+
+# boba
+df_boba = df_boba["result"].apply(pd.Series)
+df_boba.rename(columns={"value": "balance"}, inplace=True)
 
 # amount of UniDex to be distributed
 token = float(sys.argv[1])
+# token = 2000
 
-# combine dataframes
-df = pd.concat([df_ftm, df_eth])
+# combine dataframes and drop unneeded columns
+df = pd.concat([df_ftm, df_eth, df_boba])
+df.drop(columns=["contract_decimals", "contract_name", "contract_ticker_symbol", "contract_address", "supports_erc", "logo_url", "total_supply", "block_height"], inplace=True)
 
 # print(len(df_ftm))			used to confirm length is correct still
 # print(len(df_eth))
@@ -34,12 +37,11 @@ df["balance"] = df["balance"].astype(float)
 df.sort_values(by=["balance"], inplace=True, ascending=False)
 
 total = sum(df["balance"])
-print(total)
 df["decimal"] = df["balance"]/total
-df["uniDex"] = df["decimal"] * token
+df["usdc"] = df["decimal"] * token
 
 # delete unnecessary columns and reset index
-df.drop(columns=["contract_decimals", "contract_name", "contract_ticker_symbol", "contract_address", "supports_erc", "logo_url", "total_supply", "block_height", "balance", "decimal"], inplace=True)
+df.drop(columns=["balance", "decimal"], inplace=True)
 df.reset_index(inplace=True, drop=True)
 
-df.to_csv(new_file, header=False, index=False)
+df.to_json(new_file, orient="values")
