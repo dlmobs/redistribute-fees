@@ -1,6 +1,6 @@
 const https = require('https'); // or 'http' for http:// URLs
 const fs = require('fs');
-const contracts = require('../data/addresses.json')
+const allAddresses = require('../data/addresses.json')
 
 const tryDownload = async(url, chain) => {
     // pull data
@@ -21,8 +21,8 @@ const tryDownload = async(url, chain) => {
 }
 
 const downloadCSVfiles = async () => {
-    for (const chainID of Object.keys(contracts)) {
-        const contract = contracts[chainID].tokens.unidx.address
+    for (const chainID of Object.keys(allAddresses)) {
+        const contract = allAddresses[chainID].tokens.unidx.address
 
         // url
         var url = `https://api.covalenthq.com/v1/${chainID}/tokens/${contract}/token_holders/?key=ckey_eee48ec4e2384aa6b20f84c065e&format=csv`

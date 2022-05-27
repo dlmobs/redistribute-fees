@@ -29,7 +29,7 @@ const usdcContract = new ethers.Contract(usdcAddress, erc20ABI, provider)
 // wallet to receive funds
 const recipient = allAddresses[250].addresses.feesRecipient.address
 
-const collectFees = async (contract, addresses, recipient, provider) => {
+const collectFees = async () => {
     // Estimate Gas Price
     const gasPriceWei = await estimatePrice(provider)
     console.log("Estimated Gas Price", gasPriceWei)
@@ -56,5 +56,6 @@ const collectFees = async (contract, addresses, recipient, provider) => {
     }
 };
 
-// run transaction
-const run = collectFees(contract, addresses, recipient, provider)
+module.exports = {
+    collectFees
+}

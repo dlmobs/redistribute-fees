@@ -36,7 +36,7 @@ const processFile = async () => {
 };
 
 // disperse fees
-const distribute = async (contract, usdcAddress) => {
+const distribute = async () => {
     const holders = await processFile()
 
     // Estimate Gas Price
@@ -60,4 +60,4 @@ const distribute = async (contract, usdcAddress) => {
 };
 
 // run transaction
-const run = distribute(contract, usdcAddress)
+const run = distribute()

@@ -1,3 +1,4 @@
+const BigNumber = require('bignumber.js')
 
 
 // // Initialize the parser
@@ -8,29 +9,13 @@
 // Use the readable stream api to consume records
 // fs.createReadStream("data/crosschain-tokenholders.csv").pipe(parser);
 
+const a = "10000000000000000000000"
+const b = parseFloat(a)
+const c = String(b)
 
-
-
-const contracts = require('../data/addresses.json')
-
-const downloadCSVfiles = async () => {
-    for (const chainID of Object.keys(contracts)) {
-        // chain name
-        switch (chainID) {
-            case "1":
-                chain = "ETH"
-                break
-            case "250":
-                chain = "FTM"
-                break
-            case "288":
-                chain = "BOBA"
-                break
-        }
-        console.log(chain)
-    }
-}
-downloadCSVfiles()
+console.log(a)
+console.log(b)
+console.log(c)
 /*
 send usdc and ftm from treasury contract to wallet
 
@@ -44,7 +29,6 @@ wallet address: 0x8c128f336B479b142429a5f351Af225457a987Fa
 // const erc20ABI = require('../abis/ERC20.json')
 // const allAddresses = require('../data/addresses.json')
 // const { availableFees } = require('./amountAvailable')
-// const BigNumber = require('bignumber.js')
 
 
 // // all addresses needed
