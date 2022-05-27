@@ -27,9 +27,10 @@ const automate = async () => {
     // get balance in wallet after converting ftm to usdc
     const usdcAddress = allAddresses[250].tokens.usdc.address
     const usdcContract = new ethers.Contract(usdcAddress, erc20ABI, provider)
-    const usdc_balance = await usdcContract.balanceOf(wallet) // 1e6
+    const usdc_balance_big = await usdcContract.balanceOf(wallet) // 1e6 big number
+    const usdc = usdc_balance_big.dividedBy(1000000).toNumber()
 
-    const pythonProcess = spawn('python',[path.join(__dirname, "holdersFees.py"), usdc_balance]);
+    const pythonProcess = spawn('python',[path.join(__dirname, "holdersFees.py"), usdc]);
 }
 
 

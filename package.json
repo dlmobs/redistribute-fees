@@ -4,7 +4,7 @@
   "description": "Redistribute fees from contract to two different addresses.",
   "main": "index.js",
   "scripts": {
-    "available": "node scripts/AmountAvailable.js",
+    "available": "node scripts/amountAvailable.js",
     "sendtoWallet": "node scripts/sendFees.js"
   },
   "repository": {
