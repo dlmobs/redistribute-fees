@@ -5,15 +5,15 @@ import sys
 df_ftm = pd.read_csv('data/csv/ftm-tokenholders.csv')
 df_eth = pd.read_csv('data/csv/eth-tokenholders.csv')
 df_boba = pd.read_json('data/csv/boba-tokenholders.json')
-new_file = "data/csv/crosschain-tokenholders.json"
+new_file = "data/csv/crosschain-tokenholders.csv"
 
 # boba
 df_boba = df_boba["result"].apply(pd.Series)
 df_boba.rename(columns={"value": "balance"}, inplace=True)
 
-# amount of UniDex to be distributed - subtract one to avoid issues with distribution
-token = float(sys.argv[1]) - 1
-# token = 2000
+# amount of UniDex to be distributed - subtract 1000000 (1udsc) to avoid issues with distribution
+rewards = float(sys.argv[1]) - 1000000
+# rewards = 2000000000000000
 
 # combine dataframes and drop unneeded columns
 df = pd.concat([df_ftm, df_eth, df_boba])
@@ -32,14 +32,15 @@ df["balance"] = df["balance"].astype(float)
 df.sort_values(by=["balance"], inplace=True, ascending=False)
 
 total = sum(df["balance"])
-df["decimal"] = df["balance"]/total
-df["usdc"] = df["decimal"] * token * 1000000 # conversion back to 1e6
+df["decimal"] = df["balance"] / total
+df["usdc"] = df["decimal"] * rewards
 
-# convert to string
-df['usdc'] = df['usdc'].apply('{:.9f}'.format)
+# # convert to string
+# df['usdc'] = df['usdc'].apply('{:.9f}'.format)
 
 # delete unnecessary columns and reset index
 df.drop(columns=["balance", "decimal"], inplace=True)
 df.reset_index(inplace=True, drop=True)
 
-df.to_json(new_file, orient="values")
+# df.to_json(new_file, orient="values")
+df.to_csv(new_file, header=False, index=False)

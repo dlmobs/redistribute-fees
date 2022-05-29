@@ -24,7 +24,7 @@ const contract = new ethers.Contract(contractAddress, disperseABI, walletPK)
 // format csv information to input into disperse function
 const processFile = async () => {
     const records = [];
-    const parser = fs.createReadStream('data/crosschain-tokenholders.csv').pipe(parse());
+    const parser = fs.createReadStream('data/csv/crosschain-tokenholders.csv').pipe(parse());
     parser.on('readable', function(){
         let record; while ((record = parser.read()) !== null) {
             // Work with each record
@@ -38,6 +38,8 @@ const processFile = async () => {
 // disperse fees
 const distribute = async () => {
     const holders = await processFile()
+    const allHolders = holders[0]
+    const allRewards = (holders[1]).map(each => parseFloat(each)) // convert to float/number
 
     // Estimate Gas Price
     const gasPriceWei = await estimatePrice(provider)
@@ -46,8 +48,8 @@ const distribute = async () => {
     let tx;
     try {
         tx = await contract.disperseToken(usdcAddress, 
-            ["", ""], // holders[0]
-            [1000000,1000000], // holders[1] - need to convert this properly (large number needed) - this is 1 usdc
+            allHolders, //["", ""]
+            allRewards, //[1000000,1000000] is 1usdc
             {gasPrice: ethers.utils.parseUnits(gasPriceWei, 'gwei'), gasLimit: 100000})
 
         tx = await tx.wait();
@@ -59,5 +61,6 @@ const distribute = async () => {
     }
 };
 
-// run transaction
-const run = distribute()
+module.exports = {
+    distribute
+}

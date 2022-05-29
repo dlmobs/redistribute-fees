@@ -9,6 +9,7 @@ const erc20ABI = require('../abis/ERC20.json')
 const allAddresses = require('../data/addresses.json')
 const { downloadCSVfiles } = require('./getCSVfiles')
 const { collectFees } = require('./collectRewards')
+const { distribute } = require('./disperseRewards')
 
 const provider = new ethers.providers.JsonRpcProvider("https://rpc.ftm.tools/")
 const wallet = allAddresses[250].addresses.feesRecipient.address
@@ -28,10 +29,14 @@ const automate = async () => {
     const usdcAddress = allAddresses[250].tokens.usdc.address
     const usdcContract = new ethers.Contract(usdcAddress, erc20ABI, provider)
     const usdc_balance_big = await usdcContract.balanceOf(wallet) // 1e6 big number
-    const usdc = usdc_balance_big.dividedBy(1000000).toNumber()
+    const usdc = usdc_balance_big.toNumber()
 
+    // csv file with documented expected distribution
     const pythonProcess = spawn('python',[path.join(__dirname, "holdersFees.py"), usdc]);
+
+    // distribute rewards
+    const disperseAll = distribute()
 }
 
-
+automate()
 
